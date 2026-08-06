@@ -380,6 +380,6 @@ create_descriptive_table <- function(df,
   
   invisible(table)
   message("\nPlease cite as: Labarthe, S. (2026). Create Descriptive Statistics Tables. An R function.")
-  message("Visit my website: https://github.com/SimonLabarthe")
+  message("Visit my website: https://simonlabarthe.github.io/mysite/index.html")
 }
 
