@@ -1,4 +1,4 @@
-# myRpackages
+# someRpackages
 
 A collection of useful R functions for data analysis, text categorization, and automated reporting.
 
@@ -7,8 +7,8 @@ A collection of useful R functions for data analysis, text categorization, and a
 Load all functions with one line:
 
 ```{r}
-source("https://raw.githubusercontent.com/SimonLabarthe/myRpackages/main/load_all.R")
-load_myRpackages()
+source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_all.R")
+load_someRpackages()
 ```
 
 Available Functions:
@@ -50,8 +50,8 @@ It took me a while to create all of this. I would really appreciate it if you co
 
 You are pleased to cite as follow:
 
-Labarthe, S. (2026). myRpackages: R Utility Functions.
-https://github.com/SimonLabarthe/myRpackages
+Labarthe, S. (2026). someRpackages: R Utility Functions.
+https://github.com/SimonLabarthe/someRpackages
 
 Visit My Website
 https://github.com/SimonLabarthe
