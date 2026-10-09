@@ -1,8 +1,8 @@
 # load_all.R
 # One script to load all functions from myRpackages
 
-load_myRpackages <- function() {
-  base_url <- "https://raw.githubusercontent.com/SimonLabarthe/myRpackages/main"
+load_someRpackages <- function() {
+  base_url <- "https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main"
   
   # Source helper
   source(paste0(base_url, "/helpers.R"))
@@ -13,6 +13,6 @@ load_myRpackages <- function() {
   source(paste0(base_url, "/R/create_frequency_table_3vars.R"))
   source(paste0(base_url, "/R/categorise_api.R"))
   
-  message("All myRpackages functions loaded!")
+  message("someRpackages functions loaded!")
   message("Have fun :)")
 }
