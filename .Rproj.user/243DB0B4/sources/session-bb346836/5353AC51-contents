@@ -1,5 +1,5 @@
-# load_all.R
-# One script to load all functions from myRpackages
+# load_someRpackages.R
+# One script to load all functions from someRpackages
 
 load_someRpackages <- function() {
   base_url <- "https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main"

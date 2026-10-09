@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="author" content="Simon Labarthe">
+
+    <title>Simooooooooooooooooooooooooooooooooooooone</title>
+
+    <!-- ADDED: no meta description existed anywhere. This is the snippet
+         Google shows under your link in search results — without it,
+         Google picks a random sentence from the page instead. Keep it
+         under ~155 characters and specific to what's actually on THIS
+         page (this one describes the homepage). -->
+    <meta name="description" content="Personal site of Simon Labarthe, political science student at ETH Zürich working on causal inference, quantitative methods and conflict prediction.">
+
+    <link rel="icon" type="image/png" href="media/meta.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         HEADER — big name, profile picture, page title
+         ============================================================ -->
+    <header>
+        <div class="header-content" style="position: relative; z-index: 1; min-height: 200px;">
+            <a href="about.html"><img id="profilePic" src="media/my_face.jpeg" alt="Simon Labarthe"></a>
+            <h1>SIMON LABARTHE</h1>
+            <div class="ticker">Personal website</div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         NAVIGATION
+         ============================================================ -->
+    <nav class="nav-grid">
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About me</a>
+        <a href="contact.html">Send me help</a>
+    </nav>
+
+    <!-- ============================================================
+         MAIN CONTENT — project showcase
+         ============================================================ -->
+    <main>
+
+        <div class="card-grid" id="projects">
+            <div class="card project-card" data-type="ongoing">
+                <h3>FIFA 2026 PREDICTOR</h3>
+                <p>Elastic net on 10,000+ matches with 140+ predictors</p>
+                <div class="progress-bar"><div style="width:60%"></div></div>
+                <span class="tag active">PREDICTION</span>
+                <span class="tag">R</span>
+                <span class="tag">Github</span>
+            </div>
+
+            <div class="card project-card" data-type="finished">
+                <h3>IPVAW IN BRAZIL</h3>
+                <p>Close election of female and / left wing mayors on Interpersonal Violence against Women in Brazil (2012-2020)</p>
+                <div class="progress-bar"><div style="width:100%"></div></div>
+                <span class="tag active">CAUSAL INFERENCE</span>
+                <span class="tag">RDD</span>
+                <span class="tag">R</span>
+            </div>
+
+            <div class="card project-card" data-type="finished">
+                <h3>PREDICTING MIDs</h3>
+                <p>Militarized Interstate Disputes predicted probabilities dataset</p>
+                <div class="progress-bar"><div style="width:95%"></div></div>
+                <span class="tag active">PREDICTION</span>
+                <span class="tag">R</span>
+                <span class="tag">Github</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================
+         FLOATING DARK MODE TOGGLE — fixed position, independent of scroll
+         ============================================================ -->
+    <button id="darkModeToggle" class="mode-toggle" aria-label="Toggle dark mode">
+        <img id="toggleIcon" src="media/header_light.png" alt="Toggle dark mode">
+    </button>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+        <p>© 2026 By Simone</p>
+    </footer>
+
+</body>
+<script src="js/main.js"></script>
+</html>
