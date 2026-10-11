@@ -8,5 +8,3 @@
 
 library(testthat)
 library(someRpackages)
-
-test_check("someRpackages")

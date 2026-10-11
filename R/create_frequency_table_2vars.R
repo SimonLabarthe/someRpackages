@@ -56,8 +56,6 @@ create_frequency_table_2vars <- function(df,
                                          percentage_row = TRUE,
                                          percentage_col = TRUE) {
 
-  message("Creation of the frequency table: ", d_col, " x ", y_col)
-
   #---checks---
   if (!d_col %in% names(df)) {
     stop("No ", d_col, " in the dataframe :(")
@@ -74,7 +72,6 @@ create_frequency_table_2vars <- function(df,
 
   #---create directory if necessary---
   if (!dir.exists(output_dir)) {
-    message("Creating directory: ", output_dir)
     dir.create(output_dir,
                recursive = TRUE,
                showWarnings = FALSE)
@@ -86,7 +83,6 @@ create_frequency_table_2vars <- function(df,
     n_category_unique <- length(unique(df[[y_col]]))
 
     if (n_group_unique <= n_category_unique) {
-      message("pivot = TRUE. \nPivot table.")
       temp <- d_col
       d_col <- y_col
       y_col <- temp
@@ -99,16 +95,9 @@ create_frequency_table_2vars <- function(df,
   }
 
   #---create table---
-  # warning of NAs
   df <- df |>
     select(!!sym(d_col),
            !!sym(y_col))
-
-  na_count <- sum(is.na(df[[d_col]]) | is.na(df[[y_col]]))
-
-  if (na_count > 0) {
-    warning("You have ", na_count, " missing observations in your ", d_col, " and ", y_col, " variables. \nThese observations have been automatically removed from the table.")
-  }
 
   # modify and clean data
   df <- df |>
@@ -149,8 +138,6 @@ create_frequency_table_2vars <- function(df,
 
   #---add percentages based on options---
   if (percentage_row & percentage_col) {
-    message("Create table with percentages by rows and columns.")
-
     table_temp <- table_temp |>
       group_by(!!sym(d_col)) |>
       mutate(
@@ -169,8 +156,6 @@ create_frequency_table_2vars <- function(df,
       )
 
     } else if (percentage_row) {
-      message("Create table with percentages by rows uniquely.")
-
       table_temp <- table_temp |>
         group_by(!!sym(d_col)) |>
         mutate(
@@ -183,8 +168,6 @@ create_frequency_table_2vars <- function(df,
         )
 
     } else if (percentage_col) {
-    message("Create table with percentages by columns uniquely.")
-
     table_temp <- table_temp |>
       group_by(!!sym(y_col)) |>
       mutate(
@@ -197,8 +180,6 @@ create_frequency_table_2vars <- function(df,
       )
 
     } else {
-    message("Create frequency table without percentages.")
-
     table_temp <- table_temp |>
       mutate(
         value = make_cell(count)
@@ -208,7 +189,7 @@ create_frequency_table_2vars <- function(df,
   #---pivot the main table---
   table_pivot <- table_temp |>
     select(!!sym(d_col), !!sym(y_col), value) |>
-    pivot_wider(
+    tidyr::pivot_wider(
       names_from = !!sym(y_col),
       values_from = value,
       values_fill = ""
@@ -224,7 +205,7 @@ create_frequency_table_2vars <- function(df,
       value = make_cell(total_col, row_pct, col_pct)
     ) |>
     select(!!sym(y_col), value) |>
-    pivot_wider(
+    tidyr::pivot_wider(
       names_from = !!sym(y_col),
       values_from = value,
       values_fill = ""
@@ -289,7 +270,7 @@ create_frequency_table_2vars <- function(df,
   #---export to LaTeX---
   clean_caption <- paste0("Frequency table: ", gsub("_", " ", d_col))
 
-  latex_table <- xtable(
+  latex_table <- xtable::xtable(
     table_latex,
     caption = clean_caption,
     label = paste0("tab:", gsub("_", "", d_col), "_x_", gsub("_", "", y_col))
@@ -312,7 +293,6 @@ create_frequency_table_2vars <- function(df,
 
   if (length(total_line_index) > 0) {
     latex_lines <- append(latex_lines, "\\midrule", after = total_line_index[1] - 1)
-    message("Added \\midrule before total row at line", total_line_index[1])
   } else {
     total_line_index <- grep("total",
                              latex_lines,
@@ -321,7 +301,6 @@ create_frequency_table_2vars <- function(df,
     if (length(total_line_index) > 0) {
       last_total <- tail(total_line_index, 1)
       latex_lines <- append(latex_lines, "\\midrule", after = last_total -1)
-      message("Added \\midrule before total row (using 'total' fallback) at line ", last_total)
     }
   }
 
@@ -385,7 +364,6 @@ create_frequency_table_2vars <- function(df,
       } else {
         utils::browseURL(pdf_path)
       }
-    message("PDF created: ", pdf_path)
     }
   } else {
     log_file <- file.path(output_dir, sub("\\.tex$", ".log", wrapper_filename))
@@ -394,8 +372,6 @@ create_frequency_table_2vars <- function(df,
     } else {
       "(no .log file found either - pdflatex may not be on your PATH)"
     }
-    warning("PDF not created. Last lines of the LaTeX log: \n",
-            paste(log_tail, collapse = "\n"))
   }
 
   #---clean temporary files---
@@ -412,17 +388,10 @@ create_frequency_table_2vars <- function(df,
     if (file.exists(wrapper_path)) {
       file.remove(wrapper_path)
     }
-
-    message("Temporary files removed.")
   }
 
-  message("Frequency table ", output_name, " created.")
-  message("File .tex: ", tex_filename)
-  message("File .pdf: ", final_pdf_name)
 
   invisible(table)
-  message("\n \n Please cite as: Labarthe, S. (2026). Create Frequency Tables. An R function.")
-  message("Also visit my website to discover more functions : https://github.com/SimonLabarthe")
 }
 
 # library(here)

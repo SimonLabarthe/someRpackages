@@ -3,7 +3,7 @@ Title: Utilities for Data Analysis, Automated Reporting, and AI Text Classificat
 Version: 0.1.0
 Authors@R: 
     person("Simon", "Labarthe",
-           email = "your.email@example.com",
+           email = "Simon.Labarthe@outlook.com",
            role = c("aut", "cre"))
 Description: A curated collection of R functions for creating
     publication-ready LaTeX and PDF tables, for cross-tabulation of
