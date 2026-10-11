@@ -14,7 +14,7 @@ remotes::install_github("SimonLabarthe/someRpackages")
 Or, without installing the package:
 
 ```r
-source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_all.R")
+source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_someRpackages.R")
 load_someRpackages()
 ```
 
