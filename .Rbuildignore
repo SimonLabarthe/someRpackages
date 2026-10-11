@@ -1,0 +1,10 @@
+^someRpackages\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^docs$
+^STRUCTURE\.md$
+^create_structure\.R$
+^paper$
+^\.github$
+^STRUCTURE\.txt$
+^load_someRpackages\.R$

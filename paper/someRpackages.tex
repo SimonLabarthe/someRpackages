@@ -1,0 +1,403 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{tcolorbox}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage{framed}
+\definecolor{shadecolor}{HTML}{F7F7F7}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{float}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={someRpackages},
+  pdfauthor={Simon Labarthe},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{someRpackages}
+\author{Simon Labarthe}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Abstract}\label{abstract}
+
+This article introduces \texttt{someRpackages}, a curated collection of
+R functions designed to enhance efficiency in data analysis, automated
+reporting, and AI-supported text classification. Researchers frequently
+face repetitive tasks in data preparation and output generation. The
+package addresses this by offering straightforward functions for
+creating publication-ready LaTeX/PDF tables and integrating with AI APIs
+for content coding. The core functions are presented with practical
+examples obviously coming from \texttt{starwars}. By automating these
+common analytical workflows, \texttt{someRpackages} allows researchers
+to focus on substantive interpretation rather than technical
+implementation. The package is open-source and available on GitHub.
+
+\textbf{Keywords.} R package, Data Analysis, Automated Reporting, LaTeX,
+Text Classification, API.
+
+\newpage
+
+\section{Introduction}\label{introduction}
+
+Social scientists spend a substantial portion of their time not on
+thinking, but on the mechanical aspects of data analysis: cleaning data,
+writing repetitive code to generate tables, and manually classifying
+text data. This is an inefficient use of intellectual resources (already
+limited in my case). While R offers powerful analytical capabilities,
+the path from a clean dataset to a polished, publication-ready table is
+often fraught with cumbersome code and debugging.
+
+\texttt{someRpackages} offers a pragmatic solution by wrapping complex R
+operations into intuitive functions that produce LaTeX and PDF outputs.
+
+\newpage
+
+\section{Package Overview and Core
+Functions}\label{package-overview-and-core-functions}
+
+\texttt{someRpackages} is a collection of R utility functions designed
+for data analysis and automated reporting. The package is designed to be
+intuitive, requiring minimal R expertise to generate high-quality
+outputs.
+
+\subsection{Installation and Quick
+Start}\label{installation-and-quick-start}
+
+The package can be loaded directly from GitHub using the provided
+script. To get started, run the following in your R console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load and install all functions with one line}
+\FunctionTok{source}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load\_someRpackages.R"}\NormalTok{)}
+\FunctionTok{load\_someRpackages}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+This command sources and loads the core functions into the global
+environment. For PDF and LaTeX output, a LaTeX distribution is required,
+which can be conveniently installed via R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tinytex"}\NormalTok{)}
+\NormalTok{tinytex}\SpecialCharTok{::}\FunctionTok{install\_tinytex}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Available Functions}\label{available-functions}
+
+As of September 10, 2026, the package includes the following key
+functions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \texttt{create\_descriptive\_table()}: Generates a comprehensive
+  descriptive statistics table (including n, mean, median, mode, SD,
+  min, max, and quartiles) for a given dataset. It creates a LaTeX/.tex
+  file and compiles it into a standalone PDF, offering extensive
+  customization options (e.g., selecting which statistics to display).
+\item
+  \texttt{create\_frequency\_table\_2vars()}: Creates a cross-tabulation
+  frequency table for two variables, outputting results in a similar
+  polished PDF format.
+\item
+  \texttt{create\_frequency\_table\_3vars()}: Extends the frequency
+  table functionality to three variables, producing a nested frequency
+  table that is particularly useful for subgroup analysis.
+\item
+  \texttt{categorise\_api()}: An advanced function that uses the
+  DeepSeek API to classify a vector of texts. It allows researchers to
+  efficiently code large text corpora based on a custom taxonomy, with
+  built-in checkpointing and batch processing.
+\end{enumerate}
+
+\subsection{Design Philosophy}\label{design-philosophy}
+
+The design philosophy behind \texttt{someRpackages} is guided by two key
+principles. First, \textbf{laziness}: each function is designed to
+perform a complete task with minimal user input. The goal is to reduce
+complex data processing and output generation to a single readable line
+of code. For example, generating a full descriptive statistics table in
+PDF is as simple as:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{create\_descriptive\_table}\NormalTok{(data, }\AttributeTok{output\_dir =} \FunctionTok{getwd}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+Second, \textbf{maximum coolness}: the emphasis on LaTeX and PDF
+generation ensures that the output is ready for immediate integration
+into manuscripts, reports, or presentations. This approach bridges the
+gap between data analysis and scholarly publication.
+
+\section{A Worked Example: Starwars}\label{a-worked-example-starwars}
+
+To illustrate the package in action, we use the \texttt{starwars}
+dataset bundled with \texttt{dplyr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\DocumentationTok{\#\# Warning: package \textquotesingle{}dplyr\textquotesingle{} was built under R version 4.5.3}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\# Attaching package: \textquotesingle{}dplyr\textquotesingle{}}
+\DocumentationTok{\#\# The following objects are masked from \textquotesingle{}package:stats\textquotesingle{}:}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\#     filter, lag}
+\DocumentationTok{\#\# The following objects are masked from \textquotesingle{}package:base\textquotesingle{}:}
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\#     intersect, setdiff, setequal, union}
+\FunctionTok{data}\NormalTok{(}\StringTok{"starwars"}\NormalTok{, }\AttributeTok{package =} \StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Descriptive Table}\label{descriptive-table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{create\_descriptive\_table}\NormalTok{(}
+\NormalTok{  starwars,}
+  \AttributeTok{output\_name =} \StringTok{"starwars\_descriptives"}\NormalTok{,}
+  \AttributeTok{output\_dir  =} \FunctionTok{getwd}\NormalTok{(),}
+  \AttributeTok{mean        =} \ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{median      =} \ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{sd          =} \ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{min         =} \ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{max         =} \ConstantTok{TRUE}\NormalTok{,}
+  \AttributeTok{mode        =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(height, mass, birth\_year) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summary}\NormalTok{()}
+\DocumentationTok{\#\#      height           mass           birth\_year    }
+\DocumentationTok{\#\#  Min.   : 66.0   Min.   :  15.00   Min.   :  8.00  }
+\DocumentationTok{\#\#  1st Qu.:167.0   1st Qu.:  55.60   1st Qu.: 35.00  }
+\DocumentationTok{\#\#  Median :180.0   Median :  79.00   Median : 52.00  }
+\DocumentationTok{\#\#  Mean   :174.6   Mean   :  97.31   Mean   : 87.57  }
+\DocumentationTok{\#\#  3rd Qu.:191.0   3rd Qu.:  84.50   3rd Qu.: 72.00  }
+\DocumentationTok{\#\#  Max.   :264.0   Max.   :1358.00   Max.   :896.00  }
+\DocumentationTok{\#\#  NA\textquotesingle{}s   :6       NA\textquotesingle{}s   :28        NA\textquotesingle{}s   :44}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Frequency Table}\label{frequency-table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{create\_frequency\_table\_2vars}\NormalTok{(starwars, }\AttributeTok{var1 =} \StringTok{"gender"}\NormalTok{, }\AttributeTok{var2 =} \StringTok{"species"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(gender, species) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llr@{}}
+\toprule\noalign{}
+gender & species & n \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+feminine & Clawdite & 1 \\
+feminine & Droid & 1 \\
+feminine & Human & 9 \\
+feminine & Kaminoan & 1 \\
+feminine & Mirialan & 2 \\
+feminine & Tholothian & 1 \\
+feminine & Togruta & 1 \\
+feminine & Twi'lek & 1 \\
+masculine & Aleena & 1 \\
+masculine & Besalisk & 1 \\
+\end{longtable}
+}
+
+\subsection{AI-Powered Text
+Categorisation}\label{ai-powered-text-categorisation}
+
+The \texttt{categorise\_api()} function classifies a vector of texts via
+the DeepSeek API.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_texts }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
+  \StringTok{"The new childcare policy will reduce costs for families."}\NormalTok{,}
+  \StringTok{"We must fight for equal pay for equal work."}\NormalTok{,}
+  \StringTok{"The traditional family unit is the foundation of our society."}
+\NormalTok{)}
+
+\NormalTok{api\_key }\OtherTok{\textless{}{-}} \FunctionTok{Sys.getenv}\NormalTok{(}\StringTok{"DEEPSEEK\_API\_KEY"}\NormalTok{)}
+
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{categorise\_api}\NormalTok{(}
+  \AttributeTok{texts           =}\NormalTok{ my\_texts,}
+  \AttributeTok{api\_key         =}\NormalTok{ api\_key,}
+  \AttributeTok{batch\_size      =} \DecValTok{2}\NormalTok{,}
+  \AttributeTok{checkpoint\_file =} \StringTok{"my\_categorisation.rds"}
+\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(results)}
+\end{Highlighting}
+\end{Shaded}
+
+The function returns a data frame with the same number of rows as the
+input texts, containing the predicted \texttt{category} and
+\texttt{theme} for each text.
+
+\newpage
+
+\section{Closing Statement}\label{closing-statement}
+
+I believe that \texttt{someRpackages} can be a valuable asset for the
+research community. I invite researchers to use it, contribute to it,
+and adapt it to their needs. The source code is freely available on
+GitHub, and I welcome any feedback or contributions :)
+
+\subsubsection{Citation}\label{citation}
+
+It took me a while to create all of this. I would really appreciate it
+if you could make my work more visible.
+
+You are pleased to cite as follow:
+
+Labarthe, S. (2026). someRpackages: R Utility Functions.
+\url{https://github.com/SimonLabarthe/someRpackages}
+
+Visit My Website \url{https://github.com/SimonLabarthe}
+
+\end{document}

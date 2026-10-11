@@ -68,9 +68,9 @@ Social scientists spend a substantial portion of their time not on thinking, but
 
 The package can be loaded directly from GitHub using the provided script. To get started, run the following in your R console:
 
-```{r load-package}
+```{r load-package, eval=FALSE}
 # Load and install all functions with one line
-source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_all.R")
+source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_someRpackages.R")
 load_someRpackages()
 ```
 
@@ -176,6 +176,8 @@ The function returns a data frame with the same number of rows as the input text
 # Closing Statement
 
 I believe that `someRpackages` can be a valuable asset for the research community. I invite researchers to use it, contribute to it, and adapt it to their needs. The source code is freely available on GitHub, and I welcome any feedback or contributions :)
+
+
 
 ### Citation
 It took me a while to create all of this. I would really appreciate it if you could make my work more visible.

@@ -1,0 +1,26 @@
+Package: someRpackages
+Title: Utilities for Data Analysis, Automated Reporting, and AI Text Classification
+Version: 0.1.0
+Authors@R: 
+    person("Simon", "Labarthe",
+           email = "your.email@example.com",
+           role = c("aut", "cre"))
+Description: A curated collection of R functions for creating
+    publication-ready LaTeX and PDF tables, for cross-tabulation of
+    categorical variables, and for AI-supported text classification via
+    the DeepSeek API.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    dplyr,
+    tidyr,
+    rlang,
+    xtable
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.1
