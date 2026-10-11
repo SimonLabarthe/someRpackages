@@ -1,8 +1,6 @@
 # someRpackages
 
-A collection of R functions for creating publication-ready LaTeX and PDF
-tables, cross-tabulating categorical variables, and (optionally) classifying
-texts via AI APIs.
+A cool collection of R functions for creating cool things.
 
 ## Installation
 
