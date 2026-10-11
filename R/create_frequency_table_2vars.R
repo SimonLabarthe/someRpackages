@@ -330,6 +330,7 @@ create_frequency_table_2vars <- function(df,
     \\usepackage{array}
     \\usepackage{makecell}
     \\usepackage{geometry}
+    \\usepackage{graphicx}
     \\geometry{paperwidth=%sin, paperheight=%sin, margin=0.2in}
     \\begin{document}
     \\input{%s}
@@ -349,7 +350,9 @@ create_frequency_table_2vars <- function(df,
   setwd(output_dir)
 
   compile_result <- system(paste("pdflatex -interaction=nonstopmode",
-                                 shQuote(wrapper_filename)))
+                                 shQuote(wrapper_filename)),
+                           ignore.stdout = TRUE,
+                           ignore.stderr = TRUE)
 
   #---rename and open the PDF---
   compiled_pdf_name <- sub("\\.tex$", ".pdf", wrapper_filename)
@@ -394,6 +397,11 @@ create_frequency_table_2vars <- function(df,
   invisible(table)
 }
 
+# example -----------------------------------------------------------------
+
+# source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_someRpackages.R")
+# load_someRpackages()
+
 # library(here)
 # library(dplyr)
 # library(tidyr)
@@ -401,5 +409,9 @@ create_frequency_table_2vars <- function(df,
 #
 # data("starwars")
 #
-# create_frequency_table_2vars(starwars, "hair_color", "eye_color", percentage_row = TRUE, percentage_col = TRUE)
+# create_frequency_table_2vars(starwars,
+#                              "hair_color",
+#                              "eye_color",
+#                              percentage_row = TRUE,
+#                              percentage_col = TRUE)
 

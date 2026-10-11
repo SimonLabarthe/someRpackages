@@ -89,7 +89,6 @@ create_frequency_table_3vars <- function(df,
     n_category_unique <- length(unique(df[[y_col]]))
 
     if (n_group_unique <= n_category_unique) {
-      message("pivot = TRUE. \nPivot table.")
       temp <- d1_col
       d1_col <- y_col
       y_col <- temp
@@ -165,7 +164,6 @@ create_frequency_table_3vars <- function(df,
 
   #---add percentages based on options---
   if (percentage_row & percentage_col) {
-    message("Create table with percentages by rows and columns.")
 
     table_temp <- table_temp |>
       group_by(!!sym(d1_col), !!sym(d2_col)) |>
@@ -185,7 +183,6 @@ create_frequency_table_3vars <- function(df,
       )
 
   } else if (percentage_row) {
-    message("Create frequency table with percentages by rows uniquely.")
 
     table_temp <- table_temp |>
       group_by(!!sym(d1_col), !!sym(d2_col)) |>
@@ -199,7 +196,6 @@ create_frequency_table_3vars <- function(df,
       )
 
   } else if (percentage_col) {
-    message("Create frequency table with percentages by columns uniquely.")
 
     table_temp <- table_temp |>
       group_by(!!sym(y_col)) |>
@@ -213,7 +209,6 @@ create_frequency_table_3vars <- function(df,
       )
 
   } else {
-    message("Create frequency table without percentages.")
 
     table_temp <- table_temp |>
       mutate(
@@ -382,7 +377,6 @@ create_frequency_table_3vars <- function(df,
     last_total <- tail(total_line_index, 1)
     # Insert midrule before the total row
     latex_lines <- append(latex_lines, "\\midrule", after = last_total - 1)
-    message("Added \\midrule before total row at line ", last_total)
   }
 
   #---insert hline between different d1_col values (optional)---
@@ -432,7 +426,6 @@ create_frequency_table_3vars <- function(df,
             latex_lines <- append(latex_lines, "\\midrule", after = insert_after)
           }
         }
-        message("Added horizontal lines between different ", d1_col, " groups.")
       }
     }
   }
@@ -473,6 +466,7 @@ create_frequency_table_3vars <- function(df,
     \\usepackage{makecell}
     \\usepackage{multirow}
     \\usepackage{geometry}
+    \\usepackage{graphicx}
     \\geometry{paperwidth=%sin, paperheight=%sin, margin=0.2in}
     \\begin{document}
     \\input{%s}
@@ -506,7 +500,6 @@ create_frequency_table_3vars <- function(df,
       } else {
         utils::browseURL(final_pdf_path)
       }
-      message("open_pdf = TRUE \nPDF created: ", final_pdf_path)
     }
   } else {
     log_file <- file.path(output_dir, sub("\\.tex$", ".log", wrapper_filename))
@@ -534,23 +527,14 @@ create_frequency_table_3vars <- function(df,
     if (file.exists(wrapper_path)) {
       file.remove(wrapper_path)
     }
-
-    message("\nTemporary files removed. \n")
   }
-
-  message("Nested frequency table ", output_name, " created.")
-  message("File .tex: ", tex_path)
-  message("File .pdf: ", final_pdf_path)
-
   invisible(table)
-  message("\n\nPlease cite as: Labarthe, S. (2026). Create Frequency Tables. An R function.")
-  message("Also visit my website to discover more functions : https://github.com/SimonLabarthe")
 }
 
+# example -----------------------------------------------------------------
 
-
-
-
+# source("https://raw.githubusercontent.com/SimonLabarthe/someRpackages/main/load_someRpackages.R")
+# load_someRpackages()
 
 # library(here)
 # library(dplyr)
