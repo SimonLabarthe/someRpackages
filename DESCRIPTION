@@ -24,3 +24,5 @@ Suggests:
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 Config/roxygen2/version: 8.1.1
+URL: https://github.com/SimonLabarthe/someRpackages
+BugReports: https://github.com/SimonLabarthe/someRpackages/issues
